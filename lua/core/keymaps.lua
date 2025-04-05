@@ -31,8 +31,8 @@ vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 
 -- find and centre
-vim.keymap.set('n', 'n', 'nzzv', opts)
-vim.keymap.set('n', 'N', 'Nzzv', opts)
+vim.keymap.set('n', 'n', 'nzzzv', opts)
+vim.keymap.set('n', 'N', 'Nzzzv', opts)
 
 -- resize with arrows
 vim.keymap.set('n', '<Up>', ':resize -2<CR>', opts)
@@ -43,13 +43,13 @@ vim.keymap.set('n', '<Right>', ':vertical resize +2<CR>', opts)
 -- buffers
 vim.keymap.set('n', '<Tab>', ':bnext<CR>', opts)
 vim.keymap.set('n', '<S-Tab>', ':bprevious<CR>', opts)
-vim.keymap.set('n', '<leader>x', ':bnext<CR>', opts) -- close buffer
+vim.keymap.set('n', '<leader>x', ':bnext<CR>', opts)      -- close buffer
 vim.keymap.set('n', '<leader>b', '<cmd> bnew <CR>', opts) -- new buffer
 
 -- window management
-vim.keymap.set('n', '<leader>v', '<C-w>v', opts) -- split window vertically
-vim.keymap.set('n', '<leader>h', '<C-w>s', opts) -- split window horizontally
-vim.keymap.set('n', '<leader>se', '<C-w>=', opts) -- make split equal
+vim.keymap.set('n', '<leader>v', '<C-w>v', opts)      -- split window vertically
+vim.keymap.set('n', '<leader>h', '<C-w>s', opts)      -- split window horizontally
+vim.keymap.set('n', '<leader>se', '<C-w>=', opts)     -- make split equal
 vim.keymap.set('n', '<leader>xs', ':close<CR>', opts) -- close window
 
 -- navigate between splits
@@ -61,9 +61,9 @@ vim.keymap.set('n', '<C-l>', ':wincmd l<CR>', opts)
 -- tabs
 vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
 -- vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close tab
-vim.keymap.set('n', '<leader>tx', ':bd<CR>', opts) -- close tab
-vim.keymap.set('n', '<leader>tn', ':tabnCR>', opts) -- next tab
-vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) -- previous tab
+vim.keymap.set('n', '<leader>tx', ':bd<CR>', opts)     -- close tab
+vim.keymap.set('n', '<leader>tn', ':tabnCR>', opts)    -- next tab
+vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts)   -- previous tab
 
 -- toggle line wrapping
 vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
@@ -79,13 +79,13 @@ vim.keymap.set('v', 'p', '"_dP', opts)
 local diagnostics_active = true
 
 vim.keymap.set('n', '<leader>do', function()
-    diagnostics_active = not diagnostics_active
+  diagnostics_active = not diagnostics_active
 
-    if diagnostics_active then
-        vim.diagnostic.enable(0)
-    else
-        vim.diagnostic.disable(0)
-    end
+  if diagnostics_active then
+    vim.diagnostic.enable(0)
+  else
+    vim.diagnostic.disable(0)
+  end
 end)
 
 -- diagnostics keymaps
@@ -97,4 +97,3 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 -- Save and load session
 vim.keymap.set('n', '<leader>ss', ':mksession! .session.vim<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, silent = false })
-
